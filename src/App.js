@@ -1,17 +1,18 @@
 import React, { useState} from "react";
 //The hook of useState is what React uses to hook into the state or lifecycle of the component. 
 import "./App.css";
+import { Badge, FormGroup, Label, Input, } from 'reactstrap';
 
 function Todo({ todo, index, completeTodo, removeTodo }) {
   return (
     <div
-      className="todo"
+      className="todo-task"
       style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
     >
       {todo.text}
       <div>
-        <button onClick={() => completeTodo(index)}>Complete</button>
-        <button onClick={() => removeTodo(index)}>Delete</button>
+        <button className="button" onClick={() => completeTodo(index)}>Complete</button>
+        <button className="button" onClick={() => removeTodo(index)}>Delete</button>
       </div>
     </div>
   );
@@ -36,6 +37,15 @@ function TodoForm({ addTodo }) {
         placeholder="Task to be completed"
         onChange={e => setValue(e.target.value)}
       />
+      {/* <FormGroup check> */}
+        <Label check>
+          <Input type="checkbox" />{' '}
+          Priority?
+        </Label>
+      {/* </FormGroup> */}
+      <button className="button">Submit</button>
+        
+
     </form>
   );
 }
@@ -81,6 +91,13 @@ function App() {
       <h1>Game Plan</h1>
       <div className="todo-list">
         <h3>To-Do List</h3>
+
+        <div className="todo-priority">
+          <Badge color="primary">Priority</Badge>
+        </div>
+
+        <div>
+        <Badge color="primary">Non-Priority</Badge>
         {todos.map((todo, index) => (
           <Todo
             key={index}
@@ -90,7 +107,10 @@ function App() {
             removeTodo={removeTodo}
           />
         ))}
-        <TodoForm addTodo={addTodo} />
+        </div>
+        <TodoForm 
+        addTodo={addTodo} 
+        />
       </div>
     </div>
   );

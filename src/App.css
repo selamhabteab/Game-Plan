@@ -16,7 +16,21 @@
   
 }
 
-.todo {
+.todo-priority {
+  /* align-items: center;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  padding: 3px 10px;
+  color: black; */
+}
+
+
+.todo-task {
   align-items: center;
   background: #fff;
   border-radius: 3px;
@@ -27,4 +41,9 @@
   margin-bottom: 6px;
   padding: 3px 10px;
   color: black;
+}
+
+.button {
+  margin-right: 2px;
+  margin-left: 2px;
 }
